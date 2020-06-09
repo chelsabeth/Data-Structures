@@ -10,6 +10,10 @@ return elements in First In First Out order.
    Make sure the Queue tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Queue?
+
+   A: You need to find the head and the tail of an linked list in order to add and remove nodes properly.
+      A queue is also FIFO order, so we need to make sure that when a new node is added, it then becomes
+      the head. Also, when a node is removed, it removes from the Linked Lists tail.
    
 Stretch: What if you could only use instances of your Stack class to implement the Queue?
          What would that look like? How many Stacks would you need? Try it!

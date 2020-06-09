@@ -12,6 +12,10 @@ return elements in Last In First Out order.
    Make sure the Stack tests pass.
 3. What is the difference between using an array vs. a linked list when 
    implementing a Stack?
+
+   A: You need to find where the tail is, that way you can remove and add nodes properly. Because an array 
+   is in sequencial order and is contiguous, you are able to just append and pop things from an array. 
+   LIFO ordering
 """
 class Stack:
     def __init__(self):
