@@ -44,15 +44,16 @@ class LinkedList:
             # update self.tail to point to the new last Node in the linked list 
             self.tail = new_node
 
-    def add_to_head(self, data):
-        new_node = Node(data)
+    # def add_to_head(self, data):
+    #     new_node = Node(data)
 
-        if not self.head and not self.tail:
-            self.head = new_node
-            self.tail = new_node
-        else:
-            self.head.set_next()
-            self.head = new_node
+    #     if not self.head and not self.tail:
+    #         self.head = new_node
+    #         self.tail = new_node
+    #     else:
+    #         self.head.set_next()
+    #         self.head = new_node
+
     '''
      Removes the Node that `self.tail` is referring to and returns the 
      Node's data
