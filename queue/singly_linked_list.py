@@ -44,6 +44,24 @@ class LinkedList:
             # update self.tail to point to the new last Node in the linked list 
             self.tail = new_node
 
+    def add_to_head(self, data):
+        # wrap the `data` in a Node instance 
+        new_node = Node(data)
+
+        # what about the empty case, when both self.head = None and self.tail = None?
+        if not self.head and not self.tail:
+            # list is empty 
+            # update both head and tail to point to the new node 
+            self.head = new_node
+            self.tail = new_node
+        # non-empty linked list case 
+        else:
+            # call set_next with the new_node on the current tail node 
+            # self.head.set_next(new_node)
+            # update self.tail to point to the new last Node in the linked list 
+            new_node.next_node = self.head
+            self.head = new_node
+
     '''
      Removes the Node that `self.tail` is referring to and returns the 
      Node's data
