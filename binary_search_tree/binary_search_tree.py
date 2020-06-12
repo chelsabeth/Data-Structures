@@ -9,6 +9,8 @@ This part of the project comprises two days:
 2. Implement the `in_order_print`, `bft_print`, and `dft_print` methods
    on the BSTNode class.
 """
+from collections import deque
+
 class BSTNode:
     def __init__(self, value):
         self.value = value
@@ -80,7 +82,7 @@ class BSTNode:
         # doesnt actually return anything - yoyo does not need to be wound back up
         # this method does want to traverse every tree node
         # TODO:
-        # this hase to call the passed in fn on self.value
+        # this has to call the passed in fn on self.value
         # propogate to every node in the tree
         fn(self.value)
         # is there a left child?
@@ -92,23 +94,46 @@ class BSTNode:
             # if yes, call its for_each with the same fn
             self.right.for_each(fn)
 
-
+# from collections import deque
     # Part 2 -----------------------
 
     # Print all the values in order from low to high
     # Hint:  Use a recursive, depth first traversal
     def in_order_print(self, node):
-        pass
+        print(node.value)
+        if node.left:
+            node.in_order_print(node.left)
+        if node.right:
+            node.in_order_print(node.right)
+        
 
     # Print the value of every node, starting with the given node,
     # in an iterative breadth first traversal
+    # have to create a queue
     def bft_print(self, node):
-        pass
+        que = deque()
+        que.append(node)
+        while len(que) > 0:
+            current = que.popleft()
+            print(current.value)
+            if current.left:
+                que.append(current.left)
+            if current.right:
+                que.append(current.right)
 
     # Print the value of every node, starting with the given node,
     # in an iterative depth first traversal
     def dft_print(self, node):
-        pass
+        # have to create a stack
+        stack = []
+        stack.append(node)
+        while len(stack) > 0:
+            current = stack.pop()
+            if current.right:
+                stack.append(current.right)
+            if current.left:
+                stack.append(current.left)
+            print(current.value)
 
     # Stretch Goals -------------------------
     # Note: Research may be required
